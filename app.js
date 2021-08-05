@@ -1,3 +1,5 @@
+allJournalEntries = [];
+
 function JournalEntry(entryDate, confidenceLevel, journalText) {
   this.dateOf = entryDate;
   this.confidence = confidenceLevel;
@@ -20,6 +22,9 @@ JournalEntry.prototype.render = function () {
 
 let addButton = document.getElementById("add-entry");
 addButton.addEventListener("click", getUserEntry);
+
+let deleteButton = document.getElementById("delete-entry");
+deleteButton.addEventListener("click", getDeleteEntries);
 
 function getUserEntry(evt) {
   let journalEntries = [];
@@ -45,6 +50,8 @@ function getUserEntry(evt) {
               journalText
             );
             journalEntries.push(newEntry);
+            allJournalEntries.push(newEntry);
+            console.log(journalEntries);
           }
         } else {
           doneEntering = true;
@@ -59,9 +66,22 @@ function getUserEntry(evt) {
     }
   }
   postEntries(journalEntries);
+  console.log(allJournalEntries);
 }
 function postEntries(journalEntries) {
   for (let i = 0; i < journalEntries.length; i++) {
     journalEntries[i].render();
+  }
+}
+
+function getDeleteEntries() {
+  let elToDelete = prompt("Which entry would you like to delete?");
+  let elToDeleteInt = parseInt(elToDelete);
+  for (let i = 0; i < allJournalEntries.length; i++) {
+    let entries = document.querySelector("#entries");
+    let ulToDelete = entries.childNodes[i + 1];
+    if (i + 1 === elToDeleteInt) {
+      entries.removeChild(ulToDelete);
+    }
   }
 }
