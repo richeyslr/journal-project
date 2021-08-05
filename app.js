@@ -45,8 +45,6 @@ function getUserEntry(evt) {
               journalText
             );
             journalEntries.push(newEntry);
-          } else {
-            doneEntering = true;
           }
         } else {
           doneEntering = true;
