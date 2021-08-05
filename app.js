@@ -54,7 +54,6 @@ function getUserEntry(evt) {
             );
             journalEntries.push(newEntry);
             allJournalEntries.push(newEntry);
-            console.log(journalEntries);
           }
         } else {
           doneEntering = true;
@@ -69,11 +68,16 @@ function getUserEntry(evt) {
     }
   }
   postEntries(journalEntries);
-  console.log(allJournalEntries);
+  logEntries(journalEntries);
 }
 function postEntries(journalEntries) {
   for (let i = 0; i < journalEntries.length; i++) {
     journalEntries[i].render();
+  }
+}
+function logEntries(journalEntries) {
+  for (let i = 0; i < journalEntries.length; i++) {
+    console.log(journalEntries[i]);
   }
 }
 
