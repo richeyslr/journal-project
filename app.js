@@ -9,9 +9,9 @@ JournalEntry.prototype.render = function () {
   let dateLi = document.createElement("li");
   let confiLi = document.createElement("li");
   let textLi = document.createElement("li");
-  dateLi.textContent = this.dateOf;
-  confiLi.textContent = this.confidence;
-  textLi.textContent = this.entryText;
+  dateLi.textContent = `Date: ${this.dateOf}`;
+  confiLi.textContent = `Confidence Level: ${this.confidence}`;
+  textLi.textContent = `Thoughts: ${this.entryText}`;
   newEntryUl.appendChild(dateLi);
   newEntryUl.appendChild(confiLi);
   newEntryUl.appendChild(textLi);
@@ -45,7 +45,6 @@ function getUserEntry(evt) {
               journalText
             );
             journalEntries.push(newEntry);
-            postEntries(journalEntries);
           } else {
             doneEntering = true;
           }
@@ -61,11 +60,10 @@ function getUserEntry(evt) {
       doneEntering = true;
     }
   }
+  postEntries(journalEntries);
 }
 function postEntries(journalEntries) {
   for (let i = 0; i < journalEntries.length; i++) {
     journalEntries[i].render();
   }
 }
-
-console.log(journalEntries);
