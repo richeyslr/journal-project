@@ -1,3 +1,13 @@
-#header{
+#header {
   font-size: 7vh;
+}
+ul {
+  list-style: none;
+  border-radius: 1vh;
+  border: solid 0.3vh black;
+  background-color: rgb(250, 211, 152);
+}
+li {
+  margin: 2vh;
+  font-family: Arial, Helvetica, sans-serif;
 }

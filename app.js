@@ -12,7 +12,7 @@ JournalEntry.prototype.render = function () {
   let confiLi = document.createElement("li");
   let textLi = document.createElement("li");
   dateLi.textContent = `Date: ${this.dateOf}`;
-  confiLi.textContent = `Confidence Level: ${this.confidence}`;
+  confiLi.textContent = `Confidence Level: ${this.confidence.toUpperCase()}`;
   textLi.textContent = `Thoughts: ${this.entryText}`;
   newEntryUl.appendChild(dateLi);
   newEntryUl.appendChild(confiLi);
@@ -86,7 +86,8 @@ function getDeleteEntries(evt) {
   let elToDeleteInt = parseInt(elToDelete);
   for (let i = 0; i < allJournalEntries.length; i++) {
     let entries = document.querySelector("#entries");
-    let ulToDelete = entries.childNodes[i + 1];
+    console.log(entries);
+    let ulToDelete = entries.childNodes[i];
     if (i + 1 === elToDeleteInt) {
       entries.removeChild(ulToDelete);
     }
@@ -98,7 +99,7 @@ function getEditEntries(evt) {
   let elToEditInt = parseInt(elToEdit);
   for (let i = 0; i < allJournalEntries.length; i++) {
     let entries = document.querySelector("#entries");
-    let ulToEdit = entries.childNodes[i + 1];
+    let ulToEdit = entries.childNodes[i];
     if (i + 1 === elToEditInt) {
       let entryDate = prompt(`What is today's date?`);
       if (entryDate != null) {
@@ -119,7 +120,7 @@ function getEditEntries(evt) {
               let newConfiLi = document.createElement("li");
               let newTextLi = document.createElement("li");
               newDateLi.textContent = `Date: ${entryDate}`;
-              newConfiLi.textContent = `Confidence Level: ${confidenceLevel}`;
+              newConfiLi.textContent = `Confidence Level: ${confidenceLevel.toUpperCase()}`;
               newTextLi.textContent = `Thoughts: ${journalText}`;
               newEditUl.appendChild(newDateLi);
               newEditUl.appendChild(newConfiLi);
