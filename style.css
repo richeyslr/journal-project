@@ -1,11 +1,19 @@
-
+body {
+  background-color: rgb(244, 245, 250);
+}
 ul {
   list-style: none;
   border-radius: 1vh;
-  border: solid 0.3vh black;
-  background-color: rgb(250, 211, 152);
+  border: solid 0.3vh #e8edf5;
+  background-color: #2475ee;
+  color: #e8edf5;
 }
 li {
   margin: 2vh;
   font-family: Arial, Helvetica, sans-serif;
+  word-wrap: break-word;
+}
+#entries{
+  border-radius: 1vh;
+  padding: 1vh;
 }
